@@ -30,9 +30,9 @@ public class 단일조건문_1 {
         	System.out.println(ch+"는(은) 숫자입니다");
         }
         if((
-        		ch>= 'a' && ch<='z' ||
-        		ch>= 'A' && ch<='Z' ||
-        		ch>= '0' && ch<='9' 
+        		ch<= 'a' && ch>='z' ||
+        		ch<= 'A' && ch>='Z' ||
+        		ch<= '0' && ch>='9' 
            ))
         {
         	System.out.println("알파벳(숫자)가 아닙니다");
