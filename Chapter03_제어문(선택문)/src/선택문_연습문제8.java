@@ -7,6 +7,7 @@ public class 선택문_연습문제8 {
 		Scanner scan= new Scanner(System.in);
 		System.out.println("가위(0), 바위(1), 보(2):");
 		int user=scan.nextInt();
+		System.out.println("컴퓨터:"+com);
 	
 		
 		switch(com)
@@ -16,8 +17,10 @@ public class 선택문_연습문제8 {
 			{
 			case 0:
 				System.out.print("비겼다");
+				break;
 			case 1:
 				System.out.print("사용자 Win");
+				break;
 			case 2:
 				System.out.print("컴퓨터 Win");
 			}
@@ -27,8 +30,10 @@ public class 선택문_연습문제8 {
 			{
 			case 0:
 				System.out.print("컴퓨터 Win");
+				break;
 			case 1:
 				System.out.print("비겼다");
+				break;
 			case 2:
 				System.out.print("사용자 Win");
 			}
@@ -38,8 +43,10 @@ public class 선택문_연습문제8 {
 			{
 			case 0:
 				System.out.print("사용자 Win");
+				break;
 			case 1:
 				System.out.print("컴퓨터 Win");
+				break;
 			case 2:
 				System.out.print("비겼다");
 			}
