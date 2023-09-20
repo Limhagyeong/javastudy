@@ -38,12 +38,13 @@
  *    }
  */
 public class 제어문_반복문_2 {
-    static int aaaa=100; // 클래스끼리의 변수 연결 기능
+	static int aaaa = 100; // 클래스끼리의 변수 연결 기능
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		for(int i=1;i<=4;i++) //줄수
+		for (int i = 1; i <= 4; i++) // 줄수
 		{
-			for(int a=1;a<=5-i;a++) // 실제 출력문
+			for (int a = 1; a <= 5 - i; a++) // 실제 출력문
 			{
 				System.out.print("★");
 			}
