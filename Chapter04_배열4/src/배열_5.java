@@ -36,6 +36,8 @@
  *   1        3
  *   2        2
  *   3        1
+ *   -------------------
+ *   
  */
 import java.util.*;
 public class 배열_5 {
