@@ -45,6 +45,7 @@
  *      = 반복 제거
  *      = 유지보수 편리
  *      = 에러 처리 용이
+ *      
  */
 public class 메소드정리 {
 //    static void data(String s)
