@@ -1,0 +1,96 @@
+package com.sist.exception;
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.SQLException;
+// 다중 catch => 에러마다 따로 처리
+/*
+ * ==> 전체가 에러나는 코드 ==> 계층구조확인 => 크기가 클수록 아랫쪽에 배치해야함
+ * 
+ * 
+ *  try
+ *  {
+ *     문자열 => 정수로 변환 에러
+ *  }
+ *  catch (Exception ex) ==> 가장 상위클래스! (에러를 가장 많이 잡아줌) ==> 위치를 가장 아래에 배치해줘야됨
+ *  {
+ *  
+ *  }catch (NumberFormatException ex)
+ *  {
+ *  
+ *  }catch (NullPointerException ex)
+ *  {
+ *  
+ *  }catch (Exception ex)
+ *  {
+ *  
+ *  }
+ *  
+ *        Throwable
+ *        ----------
+ *            |
+ *    ------------------
+ *    |                 |
+ *  Error            Exception
+ *                      |
+ *                 -------------------
+ *                 | Check           | UnCheck
+ *                IOException    RuntimeException
+ *                SQLException       |
+ *                                  NumberFormatException
+ *                                  ...
+ *  
+ */
+// 아래에 배치될수록 상위개념
+// 문자열을 입력 ==> 정수 변환 ==> 배열에 첨부 ===> 배열에 있는 값으로 나누어라
+import java.util.*;
+public class MainClass_3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner scan=new Scanner(System.in);
+        System.out.print("정수 입력:");
+        String s1=scan.next();
+        // <input type=text>
+        System.out.print("정수 입력");
+        String s2=scan.next();
+        
+        try
+        {
+        	int[] arr=new int[2];
+        	arr[0]=Integer.parseInt(s1);
+        	arr[1]=Integer.parseInt(s2);
+        	
+        	int result=arr[0]/arr[1];
+        	System.out.println("result="+result);
+//        	Connection conn=DriverManager.getConnection("");
+        }//catch(SQLException e)
+//        {
+//        	
+//        }
+        catch(NumberFormatException e)
+        {
+        	System.out.println("정수 변환을 할 수 없습니다");
+        }catch(ArrayIndexOutOfBoundsException e)
+        {
+        	System.out.println("배열의 범위를 벗어났습니다");
+        }catch(ArithmeticException e)
+        {
+        	System.out.println("0으로 나눌 수 없습니다");
+        }catch(RuntimeException e)
+        {
+        	System.out.println("실행 시 에러");
+        }
+        catch(Exception e)
+        {
+        	System.out.println("기타 에러");
+        }catch(Throwable e)
+        {
+            System.out.println("에러와 예외처리 잡는다");	
+        }
+       
+        System.out.println("프로그램 종료");
+        // RuntimeException , Throwable
+        // SQLException => 위치 상관 없음
+	}
+
+}
