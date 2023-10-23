@@ -6,7 +6,7 @@ import javax.swing.*;
 public class BoardListPanel extends JPanel{
    public BoardListPanel()
    {
-	   setBackground(Color.cyan);
+	   setBackground(Color.white);
    }
 
 

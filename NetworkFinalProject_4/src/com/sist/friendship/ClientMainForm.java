@@ -1,6 +1,7 @@
 package com.sist.friendship;
 import javax.swing.*;
 
+//import com.sist.friendship.Login;
 import com.sist.common.ImageChange;
 
 import java.awt.*;
@@ -12,8 +13,10 @@ public class ClientMainForm extends JFrame implements ActionListener{
 	MenuPanel mp=new MenuPanel();
     ControllPanel cp=new ControllPanel();
     JLabel logo=new JLabel();
+    Login login=new Login();
     public ClientMainForm()
     {
+    	
     	setLayout(null); // null => 직접 배치 
     	logo.setBounds(10, 20, 200, 150); // 좌우, 위아래, 이미지 가로, 이미지 세로
     	logo.setIcon(new ImageIcon(ImageChange.getImage(new ImageIcon("c:\\javaDev\\logo.png"), 120, 150)));
@@ -24,7 +27,7 @@ public class ClientMainForm extends JFrame implements ActionListener{
     	cp.setBounds(135, 15, 865, 750);
     	add(cp);
     	setSize(1024, 768);
-    	setVisible(true);
+    	setVisible(false);
     	setDefaultCloseOperation(EXIT_ON_CLOSE); // X버튼 눌렀을 때 종료
     	// 등록
     	mp.b1.addActionListener(this);
@@ -33,6 +36,8 @@ public class ClientMainForm extends JFrame implements ActionListener{
     	mp.b4.addActionListener(this);
     	mp.b5.addActionListener(this);
     	mp.b6.addActionListener(this);
+    	
+    	login.b1.addActionListener(this);
     	
     }
 	public static void main(String[] args) {
@@ -70,6 +75,12 @@ public class ClientMainForm extends JFrame implements ActionListener{
 		else if(e.getSource()==mp.b6)
 		{
 			System.exit(0);
+		}
+		else if(e.getSource()==login.b1)
+		{
+			//서버 연결
+			login.setVisible(false);
+			setVisible(true);
 		}
 	}
 

@@ -18,11 +18,6 @@ public class ControllPanel extends JPanel{
 		  add("chat",cp);
 		  add("board", blp);
 		  add("news",np);
-		
-		  
-		  
-
-
 	  }
 
 	}
