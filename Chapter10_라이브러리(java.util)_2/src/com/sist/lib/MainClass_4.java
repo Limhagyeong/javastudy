@@ -89,8 +89,9 @@ public class MainClass_4 {
 		cal.set(Calendar.DATE, day);
 		String[] strWeek= {"","일","월","화","수","목","금","토"};
 		int week=cal.get(Calendar.DAY_OF_WEEK);
+		int lastday=cal.getActualMaximum(Calendar.DATE);
 		System.out.println(year+"년도 "+month+"월 "+day+"일은 "+strWeek[week]+"요일입니다");
-		
+	    System.out.println(month+"월의 마지막 날은 "+lastday);	
 			
 	}
 
