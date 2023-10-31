@@ -2,10 +2,13 @@ package com.sist.client;
 import javax.swing.*;
 
 import com.sist.common.ImageChange;
+import com.sist.manager.FoodManager;
+import com.sist.vo.FoodCategoryVO;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 /*
  *  FlowLayout : JPanel => 일자로 출력
  *       ------------
@@ -34,16 +37,17 @@ public class ClientMainForm extends JFrame implements ActionListener{
     ControllPanel cp=new ControllPanel();
     JLabel logo=new JLabel();
     Login login=new Login();
+    FoodManager fm=new FoodManager();
     public ClientMainForm()
     {
     	setLayout(null); // null => 직접 배치 
-    	logo.setBounds(10, 15, 100, 150);
-    	logo.setIcon(new ImageIcon(ImageChange.getImage(new ImageIcon("c:\\javaDev\\logo.png"), 100, 150)));
+    	logo.setBounds(10, 20, 200, 150);
+    	logo.setIcon(new ImageIcon(ImageChange.getImage(new ImageIcon("c:\\javaDev\\logo.png"), 120, 150)));
     	add(logo);
     	mp.setBounds(10, 175, 100, 250); // 좌표점을 잡아 (100,250 => 버튼 크기)
     	add(mp); // 윈도우에 출력해라
     	
-    	cp.setBounds(135, 15, 880, 750);
+    	cp.setBounds(135, 15, 865, 750);
     	add(cp);
     	setSize(1024, 768);
     	//setVisible(true);
@@ -59,6 +63,10 @@ public class ClientMainForm extends JFrame implements ActionListener{
     	
     	login.b1.addActionListener(this);
     	
+    	ArrayList<FoodCategoryVO> list=fm.foodCategoryData(1);
+    	//cp.hp.cardInit(list);
+    	cp.hp.cardPrint(list);
+    	
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -70,6 +78,7 @@ public class ClientMainForm extends JFrame implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		// TODO Auto-generated method stub
 		if(e.getSource()==mp.b1)
 		{
