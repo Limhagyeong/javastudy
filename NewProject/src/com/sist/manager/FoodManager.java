@@ -34,13 +34,13 @@ public class FoodManager {
    // 자동 수행이 된다 , 상속은 안된다 
    static
    {
-	   FileReader fr=null;
+	   /*FileReader fr=null;
 	   ObjectOutputStream ois=null;
 	   FileOutputStream fis=null;
 	   try
 	   {
 		   // 정상 수행 문장 
-		   fr=new FileReader("c:\\java_data\\bonjuk.txt");
+		   fr=new FileReader("c:\\java_data\\food_category.txt");
 		   String data="";
 		   int i=0;
 		   while((i=fr.read())!=-1)//-1 (EOF)
@@ -62,9 +62,9 @@ public class FoodManager {
 			   cList.add(vo);
 		   }
 		   
-		  /* fis=new FileOutputStream("c:\\java_data\\bj.txt");
+		   fis=new FileOutputStream("c:\\java_data\\fc.txt");
 		   ois=new ObjectOutputStream(fis);
-		   ois.writeObject(cList);*/
+		   ois.writeObject(cList);
 		   
 	   }catch(Exception ex)
 	   {
@@ -79,77 +79,12 @@ public class FoodManager {
 			   fis.close();
 			   ois.close();
 		   }catch(Exception ex) {}
-	   }
-	   
-	   //FileReader fr=null;
-	   //BufferedReader br=null;
-	   //FileInputStream fis=null;
-	   //ObjectInputStream ois=null;
-	   //StringBuffer sb=new StringBuffer();
-	   String data="";
+	   }*/
+	   FileInputStream fis=null;
+	   ObjectInputStream ois=null;
 	   try
 	   {
-		   
-		   fr=new FileReader("c:\\java_data\\bonjuk.txt");
-		   int i=0;
-		   while((i=fr.read())!=-1)//-1 (EOF)
-		   {
-			   data+=(char)i;
-		   }
-		   fr.close();
-		   String[] cates=data.split("\n");
-		   for(String s:cates)
-		   {
-			  try
-			  {
-			   //s=s.substring(0,s.indexOf("?"));
-			   StringTokenizer st=
-					   new StringTokenizer(s,"|");
-			   System.out.println(s);
-			   FoodHouseVO vo=new FoodHouseVO();
-			   vo.setCno(Integer.parseInt(st.nextToken().replace("\ufeff", "")));
-			   vo.setName(st.nextToken());
-			   vo.setSummary(st.nextToken());
-			   vo.setPoster(st.nextToken());
-			   vo.setPrice(st.nextToken());
-			  
-			   vo.setNo(st.nextToken());
-			   vo.setContent(st.nextToken());
-			   
-			   fList.add(vo);
-			  }catch(Exception ex) {ex.printStackTrace();}
-		   }
-		   //System.out.println(sb.toString());
-		  /* FileOutputStream fos=
-				   new FileOutputStream("c:\\java_data\\bj2.txt");
-		   ObjectOutputStream oos=new ObjectOutputStream(fos);
-		   oos.writeObject(fList);
-		   fos.close();
-		   oos.close();
-		   System.out.println("저장완료!!");*/
-		  
-   			
-       }catch(Exception ex)
-	   {
-		   ex.printStackTrace();//  에러 확인 / 복구 
-	   }
-	   finally
-	   {
-		  try
-		  {
-			   fis.close();
-			   fr.close();
-		  }catch(Exception ex) {}
-	   }
-	   
-	
-	   
-	  
-	   /*FileInputStream fis=null;
-	    ObjectInputStream ois=null;
-	   try
-	   {
-		   fis=new FileInputStream("c:\\java_data\\bj.txt");
+		   fis=new FileInputStream("c:\\java_data\\fc.txt");
 		   ois=new ObjectInputStream(fis);
 		   cList=(ArrayList<FoodCategoryVO>)ois.readObject();
 	   }catch(Exception ex)
@@ -164,47 +99,120 @@ public class FoodManager {
 			   ois.close();
 		   }catch(Exception ex) {}
 	   }
-	   
-	      // FileInputStream fis=null;
-	  		//ObjectInputStream ois=null;
-	  		
-	   try
-		{
-			fis=new FileInputStream("c:\\java_data\\bj2.txt");
-			ois=new ObjectInputStream(fis);
-			fList=(ArrayList<FoodHouseVO>)ois.readObject();
-		}catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		finally
-		{
-			try
-			{
-				fis.close();
-				ois.close();
-			}catch (Exception e) {}
-		} */
-	   
+	   /*
+	    *  1|
+	    *  1|
+	    *  가양칼국수버섯매운탕
+	    *  |4.3|
+	    *  서울특별시 영등포구 국제금융로 78 
+	    *  홍우빌딩 B1 지번 서울시 영등포구 
+	    *  여의도동 43-3 홍우빌딩 B1
+	    *  |02-784-0409
+	    *  |국수 / 면 요리
+	    *  |만원-2만원
+	    *  |유료주차 가능
+	    *  |11:30 - 21:30
+	    *  |가양칼국수버섯매운탕 12,000원 샤브 소고기 (200g) 
+	    *  12,000원
+	    *  |https://mp-seoul-image-production-s3.mangoplate.com/52481_1621066187997112.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80^https://mp-seoul-image-production-s3.mangoplate.com/673960_1689725902210805.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80^https://mp-seoul-image-production-s3.mangoplate.com/673960_1689725904425496.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80^https://mp-seoul-image-production-s3.mangoplate.com/24979_1686491189261172.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80^https://mp-seoul-image-production-s3.mangoplate.com/24979_1686491193055171.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80
 
-		   
-   }
-   public static void main(String[] args) {
-	   FoodManager fm=new FoodManager();
-	   //System.out.println("저장 완료!!");
-	   for(FoodHouseVO vo:fList)
+	    */
+	   /*FileReader fr=null;
+	   //BufferedReader br=null;
+	   FileInputStream fis=null;
+	   ObjectInputStream ois=null;
+	   StringBuffer sb=new StringBuffer();
+	   String data="";
+	   try
 	   {
-		  
-		   System.out.println(vo.getCno());
-		   System.out.println(vo.getName());
-		   System.out.println(vo.getSummary());
-		   System.out.println(vo.getPoster());
-		   System.out.println(vo.getPrice());
-		   System.out.println(vo.getContent());
-		   System.out.println("==============================");
+		   
+		   fr=new FileReader("c:\\java_data\\food_house.txt");
+		   int i=0;
+		   while((i=fr.read())!=-1)
+		   {
+			   sb.append((char)i);
+		   }
+		   String[] fd=sb.toString().split("\n");
+		   System.out.println(fd.length);
+		   for(String s:fd)
+		   {
+			  try
+			  {
+			   s=s.substring(0,s.indexOf("?"));
+			   StringTokenizer st=
+					   new StringTokenizer(s,"|");
+			   
+			   FoodHouseVO vo=new FoodHouseVO();
+			   vo.setFno(Integer.parseInt(st.nextToken().replace("\ufeff", "")));
+			   vo.setCno(Integer.parseInt(st.nextToken()));
+			   vo.setName(st.nextToken());
+			   vo.setScore(Double.parseDouble(st.nextToken()));
+			   vo.setAddress(st.nextToken());
+			   vo.setPhone(st.nextToken());
+			   vo.setType(st.nextToken());
+			   vo.setPrice(st.nextToken());
+			   vo.setParking(st.nextToken());
+			   vo.setTime(st.nextToken());
+			   vo.setMenu(st.nextToken());
+			   vo.setPoster(st.nextToken());
+			   fList.add(vo);
+			  }catch(Exception ex) {}
+		   }
+		   //System.out.println(sb.toString());
+		   FileOutputStream fos=
+				   new FileOutputStream("c:\\java_data\\fh.txt");
+		   ObjectOutputStream oos=new ObjectOutputStream(fos);
+		   oos.writeObject(fList);
+		   fos.close();
+		   oos.close();
+		   System.out.println("저장완료!!");
+		   
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();//  에러 확인 / 복구 
+	   }
+	   finally
+	   {
+		  try
+		  {
+			   fis.close();
+			   fr.close();
+		  }catch(Exception ex) {}
+	   }*/
+	   //FileInputStream fis=null;
+	   //ObjectInputStream ois=null;
+	   try
+	   {
+		   fis=new FileInputStream("c:\\java_data\\fh.txt");
+		   ois=new ObjectInputStream(fis);
+		   fList=(ArrayList<FoodHouseVO>)ois.readObject();
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   try
+		   {
+			   fis.close();
+			   ois.close();
+		   }catch(Exception ex) {}
 	   }
    }
-   
+   /*public static void main(String[] args) {
+	   FoodManager fm=new FoodManager();
+	   for(FoodHouseVO vo:fList)
+	   {
+		   System.out.println("번호:"+vo.getFno());
+		   System.out.println("참조번호:"+vo.getCno());
+		   System.out.println("업체명:"+vo.getName());
+		   System.out.println("주소:"+vo.getAddress());
+		   System.out.println("전화:"+vo.getPhone());
+		   System.out.println("메뉴:"+vo.getMenu());
+		   System.out.println("==========================");
+	   }
+	   
+   }*/
    public ArrayList<FoodCategoryVO> foodCategoryData(int no)
    {
 	   ArrayList<FoodCategoryVO> list=
@@ -219,43 +227,31 @@ public class FoodManager {
 	   else if(no==2)
 	   {
 		   start=12;
-		   end=23;
+		   end=17;
 	   }
 	   else if(no==3)
 	   {
-		   start=24;
-		   end=35;
-	   }
-	   else if(no==4)
-	   {
-		   start=36;
-		   end=47;
-	   }
-	   else if(no==5)
-	   {
-		   start=48;
-		   end=59;
-	   }
-	   else if(no==6)
-	   {
-		   start=60;
-		   end=71;
-	   }
-	   else if(no==7)
-	   {
-		   start=72;
-		   end=83;
-	   }
-	   else if(no==8)
-	   {
-		   start=84;
-		   end=95;
+		   start=18;
+		   end=29;
 	   }
 	   for(int i=start;i<=end;i++)
 	   {
 		   list.add(cList.get(i));
 	   }
 	   return list;
+   }
+   public FoodCategoryVO categoryInfoData(String title)
+   {
+	   FoodCategoryVO vo=new FoodCategoryVO();
+	   for(FoodCategoryVO fvo:cList)
+	   {
+		   if(fvo.getTitle().equals(title))
+		   {
+			   vo=fvo;
+			   break;
+		   }
+	   }
+	   return vo;
    }
    public ArrayList<FoodHouseVO> foodHouseListData(int cno)
    {
@@ -269,19 +265,6 @@ public class FoodManager {
 		   }
 	   }
 	   return list;
-   }
-   public FoodHouseVO foodInfoData(String name)
-   {
-	   FoodHouseVO vo=new FoodHouseVO();
-	   for(FoodHouseVO fvo:fList)
-	   {
-		   if(fvo.getName().equals(name))
-		   {
-			   vo=fvo;
-			   break;
-		   }
-	   }
-	   return vo;
    }
    public FoodHouseVO foodInfoData(int fno)
    {
@@ -309,5 +292,4 @@ public class FoodManager {
 	   }
 	   return list;
    }
- 
 }

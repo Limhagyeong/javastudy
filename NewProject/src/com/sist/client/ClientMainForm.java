@@ -9,28 +9,29 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.net.*;
 /*
- *  FlowLayout : JPanel => 일자로 출력
- *       ------------
- *        버튼 버튼 .. : 일자로 출력
- *       -------------
- *  GridLayout => 일정 간격을 주고 출력
- *       ------------
- *       버튼  버튼  버튼
- *       버튼  버튼  버튼  
- *       ------------
- *  BorderLayout : JFrame
- *        -----------
- *           North 
- *        -----------
- *          |     |
- *    East  |     | West
- *          |     |
+ *   FlowLayout : JPanel 
+ *      --------------
+ *        버튼  버튼 ....
+ *      --------------
+ *   GridLayout
+ *      --------------
+ *        버튼 버튼 버튼 
+ *        버튼 버튼 버튼 
+ *      -------------
+ *   BorderLayout => JFrame
+ *      ------------
+ *         North
+ *      ------------
+ *         |     |
+ *  East   |     |  West
+ *         |     |
  *           Center
- *        -----------
- *           South
- *        -----------
- *  CardLayout => 감췄다가 원하는 위치를 지정하면 전환해줌
+ *      ------------
+ *        South
+ *      ------------
+ *   CardLayout : 감춘다 => 
  */
 public class ClientMainForm extends JFrame implements ActionListener{
     MenuPanel mp=new MenuPanel();
@@ -40,20 +41,21 @@ public class ClientMainForm extends JFrame implements ActionListener{
     FoodManager fm=new FoodManager();
     public ClientMainForm()
     {
-    	setLayout(null); // null => 직접 배치 
-    	logo.setBounds(10, 20, 200, 150);
-    	logo.setIcon(new ImageIcon(ImageChange.getImage(new ImageIcon("c:\\javaDev\\logo.png"), 120, 150)));
+    	setLayout(null); // 직접 배치
+    	logo.setBounds(10, 15, 120, 120);
+    	logo.setIcon(new ImageIcon(ImageChange.getImage(
+    			new ImageIcon("c:\\javaDev\\logo.jpg"), 120, 120)));
     	add(logo);
-    	mp.setBounds(10, 175, 100, 250); // 좌표점을 잡아 (100,250 => 버튼 크기)
-    	add(mp); // 윈도우에 출력해라
+    	mp.setBounds(10, 175, 120, 250);
+    	add(mp);
     	
-    	cp.setBounds(135, 15, 865, 750);
+    	cp.setBounds(135, 15, 865, 705);
     	add(cp);
-    	setSize(1024, 768);
+    	setSize(1025, 768);
     	//setVisible(true);
-    	setDefaultCloseOperation(EXIT_ON_CLOSE); // X버튼 눌렀을 때 종료
-    
-    	// 등록
+    	setDefaultCloseOperation(EXIT_ON_CLOSE);
+    	setResizable(false);
+    	// 등록 
     	mp.b1.addActionListener(this);
     	mp.b2.addActionListener(this);
     	mp.b3.addActionListener(this);
@@ -64,26 +66,24 @@ public class ClientMainForm extends JFrame implements ActionListener{
     	login.b1.addActionListener(this);
     	
     	ArrayList<FoodCategoryVO> list=fm.foodCategoryData(1);
-    	//cp.hp.cardInit(list);
+    	//cp.hp.cardInit();
     	cp.hp.cardPrint(list);
-    	
+    			
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 try
-	       {
-	    	   UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-	       }catch(Exception ex) {}
+		try
+		{
+			UIManager.setLookAndFeel("com.jtattoo.plaf.mcwin.McWinLookAndFeel");
+		}catch(Exception ex) {}
         new ClientMainForm();
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		// TODO Auto-generated method stub
 		if(e.getSource()==mp.b1)
 		{
 			cp.card.show(cp, "home");
-			
 		}
 		else if(e.getSource()==mp.b2)
 		{
@@ -107,7 +107,7 @@ public class ClientMainForm extends JFrame implements ActionListener{
 		}
 		else if(e.getSource()==login.b1)
 		{
-			//서버 연결
+			// 서버연결 
 			login.setVisible(false);
 			setVisible(true);
 		}
