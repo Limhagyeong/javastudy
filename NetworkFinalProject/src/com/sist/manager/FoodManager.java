@@ -234,12 +234,12 @@ public class FoodManager {
 		}
 		return list;
 	}
-	public FoodHouseVO categoryInfoData(String title)
+	public FoodCategoryVO categoryInfoData(String title)
 	{
-		FoodHouseVO vo=new FoodHouseVO();
-		for(FoodHouseVO fvo:fList)
+		FoodCategoryVO vo=new FoodCategoryVO();
+		for(FoodCategoryVO fvo:cList)
 		{
-			if(fvo.getName().equals(title))
+			if(fvo.getTitle().equals(title))
 			{
 				vo=fvo;
 				break;

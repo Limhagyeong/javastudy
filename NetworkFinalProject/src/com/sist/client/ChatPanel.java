@@ -8,12 +8,12 @@ import java.awt.*;
 public class ChatPanel extends JPanel{
 	JTable table1,table2;
 	DefaultTableModel model1,model2;
-	JTextPane pane;
+	JTextArea pane;
 	JTextField tf;
 	JButton b1,b2,b3,b4,b5,b6;
+	JScrollBar bar;
   public ChatPanel()
   {
-	  setBackground(Color.lightGray);
 	  setLayout(null);
 	  String[] col1= {"방이름","상태","인원"};
 	  String[][] row1=new String[0][3]; // 한줄에 3개의 데이터를 넣겠다
@@ -25,23 +25,24 @@ public class ChatPanel extends JPanel{
 	  js1.setBounds(10, 15, 450, 350);
 	  add(js1);
 	  
-	  setBackground(Color.magenta);
+	  //setBackground(Color.magenta);
 	  setLayout(null);
 	  String[] col2= {"ID","이름","성별","위치"};
 	  String[][] row2=new String[0][4]; // 한줄에 3개의 데이터를 넣겠다
 	  
-	  model1=new DefaultTableModel(row2,col2);
-	  table1=new JTable(model1);
-	  JScrollPane js2=new JScrollPane(table1);
+	  model2=new DefaultTableModel(row2,col2);
+	  table2=new JTable(model2);
+	  JScrollPane js2=new JScrollPane(table2);
 	  
 	  js2.setBounds(10, 375, 450, 250);
 	  add(js2);
 	  
-	  pane=new JTextPane();
+	  pane=new JTextArea();
 	  JScrollPane js3=new JScrollPane(pane);
 	  pane.setEditable(false);
 	  js3.setBounds(470, 15, 400, 310);
 	  add(js3);
+	  bar=js3.getVerticalScrollBar();
 	  
 	  tf=new JTextField();
 	  tf.setBounds(470, 330, 400, 30);
